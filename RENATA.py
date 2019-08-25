@@ -99,13 +99,6 @@ class AlgoritmoGenetico():
     def melhorIndividuo(self, individuo):
         if individuo.notaAvaliacao > self.melhorSolucao.notaAvaliacao:
             self.melhorSolucao = individuo;
-            
-    #def bestIndividual(self):
-    #    if len(self.selectedIndividuals) > 0:
-    #        individuo = sorted(self.selectedIndividuals, key=lambda selectedIndividuals: selectedIndividuals.sumBlocks, reverse = False);
-    #        return individuo[0];
-    #    else:
-    #        return 0;
     
     def somaAvaliacoes(self):
         soma = 0;
@@ -208,23 +201,12 @@ if __name__ == '__main__':
             blocks.append(block);
          else:
             print("Invalid option \n");
-         
- #   target = 0.999999;
-    
- #   blocks.append(RbdBlock(0.95, "a"));
- #   blocks.append(RbdBlock(0.95, "b"));
- #0   blocks.append(RbdBlock(0.8, "c"));    
-    #blocks.append(RbdBlock(0.9, "d"));
-    #blocks.append(RbdBlock(0.9, "a"));
-    #blocks.append(RbdBlock(0.9, "b"));
-    #blocks.append(RbdBlock(0.9, "a"));
-    #blocks.append(RbdBlock(0.9, "b"));
-    
+      
     populationSize = 200;
     
     taxaMutacao = 0.25;
     
-    numeroGeracoes = 5000;
+    numeroGeracoes = 50000;
         
     ag = AlgoritmoGenetico(populationSize);
 
@@ -244,14 +226,9 @@ if __name__ == '__main__':
     plt.plot(ag.listaSolucoes);
     plt.title("Evaluation results of generations");
     plt.show();
-    #f.savefig("PSize-50GN-100.pdf", bbox_inches='tight')
 
     fig = plt.figure()
     plt.plot(ag.sumBlocksValues, 'o', color='black');
     plt.title("Sum blocks");
     plt.show();    
-        
-    #for block in blocks:
-    #    print(block.name, block.avail, block.parallelBlocks, block.blockAvailability);
 
-  
